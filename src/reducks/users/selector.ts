@@ -6,3 +6,8 @@ export const getUserId = createSelector(
   (state: initialState) => state.users,
   (users: userState) => users.uid
 );
+
+export const getUsername = createSelector(
+  (state: initialState) => state.users,
+  (users: userState) => users.username
+)
