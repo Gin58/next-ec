@@ -1,25 +1,15 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { Layout } from "src/components/layout";
-import { signIn } from "src/reducks/users/usersSlice";
+
+import { getUserId } from "../reducks/users/selector";
 
 const Home = () => {
-  const dispatch = useDispatch();
-  const selector = useSelector(state => state);
+  const uid = useSelector(getUserId);
 
-  console.log(selector)
+  console.log(uid);
   return (
     <Layout>
-      <button
-        className="btn-blue"
-        onClick={() => {
-          window.alert("Hello, World!");
-        }}
-      >
-        Button
-      </button>
-      <button onClick={() => dispatch(signIn({ uid: '0001', username: 'test'}))}>
-        Sign in
-      </button>
+      <div>{uid}</div>
     </Layout>
   );
 };
