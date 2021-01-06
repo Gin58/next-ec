@@ -10,4 +10,4 @@ export const getUserId = createSelector(
 export const getUsername = createSelector(
   (state: initialState) => state.users,
   (users: userState) => users.username
-)
+);

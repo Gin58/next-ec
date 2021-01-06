@@ -1,3 +1,4 @@
+import "src/styles/reset.css";
 import "src/styles/globals.css";
 
 import { Provider } from "react-redux";

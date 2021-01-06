@@ -5,7 +5,7 @@ import { getUserId, getUsername } from "../reducks/users/selector";
 
 const Home = () => {
   const uid = useSelector(getUserId);
-  const username = useSelector(getUsername)
+  const username = useSelector(getUsername);
 
   console.log(uid);
   return (
