@@ -1,6 +1,12 @@
+import { useDispatch, useSelector } from "react-redux";
 import { Layout } from "src/components/layout";
+import { signIn } from "src/reducks/users/usersSlice";
 
 const Home = () => {
+  const dispatch = useDispatch();
+  const selector = useSelector(state => state);
+
+  console.log(selector)
   return (
     <Layout>
       <button
@@ -10,6 +16,9 @@ const Home = () => {
         }}
       >
         Button
+      </button>
+      <button onClick={() => dispatch(signIn({ uid: '0001', username: 'test'}))}>
+        Sign in
       </button>
     </Layout>
   );
