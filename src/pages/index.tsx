@@ -1,15 +1,17 @@
 import { useSelector } from "react-redux";
 import { Layout } from "src/components/layout";
 
-import { getUserId } from "../reducks/users/selector";
+import { getUserId, getUsername } from "../reducks/users/selector";
 
 const Home = () => {
   const uid = useSelector(getUserId);
+  const username = useSelector(getUsername)
 
   console.log(uid);
   return (
     <Layout>
-      <div>{uid}</div>
+      <div>ユーザーid: {uid}</div>
+      <div>ユーザーネーム: {username}</div>
     </Layout>
   );
 };

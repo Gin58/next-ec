@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import { useDispatch } from "react-redux";
 import { Layout } from "src/components/layout";
-import { signIn } from "src/reducks/users/usersSlice";
+import { signIn } from "../reducks/users/operations";
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -13,7 +13,7 @@ const Login = () => {
         <button
           className="btn-blue"
           onClick={() => {
-            dispatch(signIn({ uid: "0001", username: "test" }));
+            dispatch(signIn());
             router.push("/");
           }}
         >
