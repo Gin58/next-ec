@@ -1,0 +1,13 @@
+.form {
+  max-width: 600px;
+  margin: 0 auto;
+
+  p {
+    color: #bf1650;
+  }
+  
+  p::before {
+    display: inline;
+    content: "⚠ ";
+  }
+}

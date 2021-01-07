@@ -1,27 +1,26 @@
-import { useRouter } from "next/router";
-import { useDispatch } from "react-redux";
-import { Layout } from "src/components/layout";
-import { signIn } from "../reducks/users/operations";
-
-const Login = () => {
-  const dispatch = useDispatch();
-  const router = useRouter();
-
+import Link from "next/link";
+import LoginForm from "src/components/LoginForm";
+import styles from "../styles/pages/sign.module.scss";
+const style = {
+  backgroundColor: "#0e101c",
+  height: 1200,
+};
+const LoginPage: React.FC = () => {
   return (
-    <Layout>
+    <div style={style}>
       <div>
-        <button
-          className="btn-blue"
-          onClick={() => {
-            dispatch(signIn());
-            router.push("/");
-          }}
-        >
-          ログインする
-        </button>
+        <h2>Log in</h2>
+        <p>
+          {"Don't have an account? "}
+          <Link href="/signup">
+            <a href="#">Sign Up</a>
+          </Link>
+        </p>
+        <div className={styles.form}>
+          <LoginForm />
+        </div>
       </div>
-    </Layout>
+    </div>
   );
 };
-
-export default Login;
+export default LoginPage;
