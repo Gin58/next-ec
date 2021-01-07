@@ -13,24 +13,6 @@
     "test": "jest",
     "test-all": "yarn eslint && yarn stylelint && yarn type-check && yarn test"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged",
-      "pre-push": "yarn run type-check"
-    }
-  },
-  "lint-staged": {
-    "*.@(ts|tsx)": [
-      "yarn eslint",
-      "yarn stylelint",
-      "yarn format"
-    ]
-  },
-  "babel": {
-    "presets": [
-      "next/babel"
-    ]
-  },
   "prettier": {
     "printWidth": 120
   },

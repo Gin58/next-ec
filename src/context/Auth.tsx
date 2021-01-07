@@ -4,9 +4,9 @@
 // https://zenn.dev/k_logic24/articles/react-auth-with-firebase
 
 type User = {};
-import { FC, createContext, useEffect, useState } from "react";
+import { FC, createContext, useState } from "react";
 
-import firebase from "../utils/Firebase";
+// import firebase from "../utils/Firebase";
 
 type AuthContextProps = {
   currentUser: User | null | undefined;
@@ -17,11 +17,11 @@ const AuthContext = createContext<AuthContextProps>({ currentUser: undefined });
 const AuthProvider: FC = ({ children }) => {
   const [currentUser, setCurrentUser] = useState<User | null | undefined>(undefined);
 
-  useEffect(() => {
-    firebase.auth().onAuthStateChanged((user) => {
-      setCurrentUser(user);
-    });
-  }, []);
+  // useEffect(() => {
+  //   firebase.auth().onAuthStateChanged((user) => {
+  //     setCurrentUser(user);
+  //   });
+  // }, []);
 
   return <AuthContext.Provider value={{ currentUser: currentUser }}>{children}</AuthContext.Provider>;
 };
