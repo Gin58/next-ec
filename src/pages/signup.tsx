@@ -1,7 +1,12 @@
+import { useRouter } from "next/router";
 import { useCallback, useState } from "react";
+import { useDispatch } from "react-redux";
 import { PrimaryButton, TextInput } from "src/components/UIkit";
+import { signUp } from "../reducks/users/operations";
 
 const SignUp = () => {
+  const dispatch = useDispatch();
+  const router = useRouter();
   const [username, setUsername] = useState(""),
     [email, setEmail] = useState(""),
     [password, setPassword] = useState(""),
@@ -81,7 +86,13 @@ const SignUp = () => {
       />
       <div className="module-spacer--medium" />
       <div className="center">
-        <PrimaryButton label="アカウントを登録する" onClick={() => console.log("clicked!")} />
+        <PrimaryButton
+          label="アカウントを登録する"
+          onClick={() => {
+            dispatch(signUp(username, email, password, confirmPassword));
+            router.push("/");
+          }}
+        />
       </div>
     </div>
   );
